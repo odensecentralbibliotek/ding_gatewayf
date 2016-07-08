@@ -416,7 +416,8 @@ function ding_gatewayf_registration_update_library_patrons($serviceplatformen) {
    $not_known_municipalno = '0000';
    $our_municipalno       = variable_get('serviceplatformen_our_municipalno');
    $cat_limit_age_years   = 14;
-
+   $selfreg_cat           = variable_get('serviceplatformen_selfreg_cat');
+   
    if ( substr( $serviceplatformen['KOMKOD'], 0, 1 ) == 0 ) { // if the first character is a 0 then:
        $serviceplatformen['KOMKOD'] = substr( $serviceplatformen['KOMKOD'], 1 ); // take the string starting at the 2nd character (starts with 0,1,2,3,4)
    }
@@ -430,7 +431,7 @@ function ding_gatewayf_registration_update_library_patrons($serviceplatformen) {
    }
 
    if ( $serviceplatformen['KOMKOD'] == $not_known_municipalno ) {
-        $cat = 'zz';
+        $cat = $selfreg_cat;
         } elseif ( $serviceplatformen['KOMKOD'] == $our_municipalno )  {
         $cat = $ageidx['ours'];
         } else {
