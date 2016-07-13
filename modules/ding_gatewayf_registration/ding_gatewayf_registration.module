@@ -372,12 +372,12 @@ function ding_gatewayf_registration_acceptance_form_submit($form, $form_state) {
 
     // Send mail to user
     ding_gatewayf_dk_registration_drupal_mail('default_from', $values['mail'], 'Låner ved ' . variable_get('site_name', 'Biblioteket'), '<p>Hej
-      <p>Du er nu oprettet som låner ved ' .variable_get('site_name', 'Biblioteket'). '. Du kan reservere og låne materialer.
+      <p>Du er nu oprettet som låner ved ' .variable_get('site_name', 'Biblioteket'). '. Du kan reservere og låne materialer på alle biblioteker i kommunen.
       <p>Dit brugernavn er dit cpr-nummer. Din pinkode er den kode du valgte, da du oprettede dig via hjemmesiden.
-      <p>Hvis du er bosat uden for kommunen skal du være opmærksom på, at du ikke kan benytte bibliotekets Netmedier.
-      Brug af bibliotekets netmedier forudsætter, at du er bosat indenfor kommunen.
+      <p>Hvis du er bosat uden for kommunen skal du være opmærksom på, at du ikke kan benytte bibliotekets netmedier.
+      Brug af bibliotekets netmedier forudsætter, at du er bosat i kommunen.
       <p>Med venlig hilsen<br>
-      '.variable_get('site_name', 'Biblioteket').' - <a href="mailto:it-udvikling@fynbib.dk">it-udvikling@fynbib.dk</a><br>
+      '.variable_get('site_name', 'Biblioteket').' - <a href="mailto:'.variable_get('site_mail', '').'">'.variable_get('site_mail', '').'</a><br>
       ' .$base_url);
 
     $_REQUEST['destination'] = DING_GATEWAYF_REGISTRATION_SUCCESS_URL;
