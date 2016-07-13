@@ -24,6 +24,7 @@ function ding_gatewayf_registration_menu() {
     'page callback' => 'drupal_get_form',
     'page arguments' => array('ding_gatewayf_registration_acceptance_form'),
     'access callback' => 'ding_gatewayf_registration_acceptance_access_check',
+    'access callback' => TRUE,
     'type' => MENU_CALLBACK,
   );
 
@@ -343,7 +344,7 @@ function ding_gatewayf_registration_acceptance_form_submit($form, $form_state) {
       'authname' => TRUE,
     ),
   );
-  $wayf_attributes = $_SESSION[DING_GATEWAYF_ATTRIBUTES];
+  $wayf_attributes = $_SESSION[DING_GATEWAYF_ATTRIBUTES]; //array('schacPersonalUniqueID' => array('urn:mace:terena.org:schac:personalUniqueID:dk:CPR:' . 'cpr'));
   $required_attributes = _ding_gatewayf_get_required_attributes($wayf_attributes, $required_attributes);
   unset($_SESSION[DING_GATEWAYF_ATTRIBUTES]);
 
