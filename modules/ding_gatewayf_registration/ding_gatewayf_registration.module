@@ -24,7 +24,6 @@ function ding_gatewayf_registration_menu() {
     'page callback' => 'drupal_get_form',
     'page arguments' => array('ding_gatewayf_registration_acceptance_form'),
     'access callback' => 'ding_gatewayf_registration_acceptance_access_check',
-    'access callback' => TRUE,
     'type' => MENU_CALLBACK,
   );
 
