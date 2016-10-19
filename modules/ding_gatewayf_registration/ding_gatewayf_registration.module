@@ -299,6 +299,7 @@ function ding_gatewayf_registration_acceptance_form() {
   $provider = _ding_provider_get_provider('reservation');
   $options = ding_provider_invoke('reservation', 'options', $user);
   $form['branch'] = $options[$provider['module'] . '_preferred_branch'];
+  $form['branch']['#required'] = TRUE;
 
   $form['pin'] = array(
     '#type' => 'password',
