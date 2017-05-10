@@ -364,7 +364,7 @@ function ding_gatewayf_registration_acceptance_form_submit($form, $form_state) {
     // Call to serviceplatform
     //global $serviceplatformen; -> not needed
     $cpr = $required_attributes['schacPersonalUniqueID'];
-    $serviceplatformen = serviceplatformen_get_address($cpr); -> not needed.
+    $serviceplatformen = serviceplatformen_get_address($cpr); //-> not needed.
     // Create user.
     ding_provider_invoke('user','create',$cpr, $values['pin'], $serviceplatformen['name'], $values['mail'], $values['branch']);
     //alma_client_invoke('self_register', $cpr, $values['pin'], $serviceplatformen['name'], $serviceplatformen['road'] . ', ' . $serviceplatformen['postdistrikt'], $serviceplatformen['zipcode'], $values['mail'], $values['branch'], $values['sms']);
