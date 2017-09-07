@@ -298,7 +298,7 @@ function ding_gatewayf_registration_acceptance_form() {
   global $user;
   $provider = _ding_provider_get_provider('reservation');
   $options = ding_provider_invoke('reservation', 'options', $user);
-  $form['branch'] = $options[$provider['module'] . '_preferred_branch'];
+  $form['branch'] = $options['preferred_branch'];
   $form['branch']['#required'] = TRUE;
 
   $form['pin'] = array(
@@ -345,7 +345,9 @@ function ding_gatewayf_registration_acceptance_form_submit($form, $form_state) {
       'authname' => TRUE,
     ),
   );
-  $wayf_attributes = $_SESSION[DING_GATEWAYF_ATTRIBUTES]; //array('schacPersonalUniqueID' => array('urn:mace:terena.org:schac:personalUniqueID:dk:CPR:' . 'cpr'));
+  //$wayf_attributes = $_SESSION[DING_GATEWAYF_ATTRIBUTES]; //
+  $wayf_attributes = array('schacPersonalUniqueID' => array('urn:mace:terena.org:schac:personalUniqueID:dk:CPR:' . '2408432321'));
+  
   $required_attributes = _ding_gatewayf_get_required_attributes($wayf_attributes, $required_attributes);
   unset($_SESSION[DING_GATEWAYF_ATTRIBUTES]);
 
@@ -366,7 +368,7 @@ function ding_gatewayf_registration_acceptance_form_submit($form, $form_state) {
     $cpr = $required_attributes['schacPersonalUniqueID'];
     $serviceplatformen = serviceplatformen_get_address($cpr); //-> not needed.
     // Create user.
-    ding_provider_invoke('user','create',$cpr, $values['pin'], $serviceplatformen['name'], $values['mail'], $values['branch']);
+    ding_provider_invoke('user','create',$cpr, $values['pin'], $serviceplatformen['name'], $values['mail'], $values['branch'],$values['sms']);
     //alma_client_invoke('self_register', $cpr, $values['pin'], $serviceplatformen['name'], $serviceplatformen['road'] . ', ' . $serviceplatformen['postdistrikt'], $serviceplatformen['zipcode'], $values['mail'], $values['branch'], $values['sms']);
 
     //ding_gatewayf_registration_update_library_patrons($serviceplatformen);
