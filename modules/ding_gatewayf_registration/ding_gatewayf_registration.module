@@ -345,8 +345,8 @@ function ding_gatewayf_registration_acceptance_form_submit($form, $form_state) {
       'authname' => TRUE,
     ),
   );
-  //$wayf_attributes = $_SESSION[DING_GATEWAYF_ATTRIBUTES]; //
-  $wayf_attributes = array('schacPersonalUniqueID' => array('urn:mace:terena.org:schac:personalUniqueID:dk:CPR:' . '2408432321'));
+  $wayf_attributes = $_SESSION[DING_GATEWAYF_ATTRIBUTES]; //
+  //$wayf_attributes = array('schacPersonalUniqueID' => array('urn:mace:terena.org:schac:personalUniqueID:dk:CPR:' . '2408432321'));
   
   $required_attributes = _ding_gatewayf_get_required_attributes($wayf_attributes, $required_attributes);
   unset($_SESSION[DING_GATEWAYF_ATTRIBUTES]);
