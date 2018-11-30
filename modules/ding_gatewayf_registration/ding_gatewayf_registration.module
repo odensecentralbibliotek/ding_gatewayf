@@ -366,9 +366,9 @@ function ding_gatewayf_registration_acceptance_form_submit($form, $form_state) {
     // Call to serviceplatform
     //global $serviceplatformen; -> not needed
     $cpr = $required_attributes['schacPersonalUniqueID'];
-    $serviceplatformen = serviceplatformen_get_address($cpr); //-> not needed.
+    //$serviceplatformen = serviceplatformen_get_address($cpr); //-> not needed.
     // Create user.
-    ding_provider_invoke('user','create',$cpr, $values['pin'], $serviceplatformen['name'], $values['mail'], $values['branch'],$values['sms']);
+    ding_provider_invoke('user','create',$cpr, $values['pin'], $values['mail'], $values['branch'],$values['sms']);
     //alma_client_invoke('self_register', $cpr, $values['pin'], $serviceplatformen['name'], $serviceplatformen['road'] . ', ' . $serviceplatformen['postdistrikt'], $serviceplatformen['zipcode'], $values['mail'], $values['branch'], $values['sms']);
 
     //ding_gatewayf_registration_update_library_patrons($serviceplatformen);
@@ -404,6 +404,7 @@ function ding_gatewayf_registration_acceptance_form_submit($form, $form_state) {
 /*
  * Calculate borrower category
  */
+/*
 function ding_gatewayf_registration_update_library_patrons($serviceplatformen) {
    global $serviceplatformen;
 
@@ -449,7 +450,7 @@ function ding_gatewayf_registration_update_library_patrons($serviceplatformen) {
    while ($line = fgets($fp)) $response .= $line;
    fclose($fp);
 }
-
+*/
 /*
 * Calculate age from cpr
 */
